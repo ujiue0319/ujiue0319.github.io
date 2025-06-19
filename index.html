@@ -10,6 +10,7 @@
       padding: 0;
       margin: 0;
     }
+
     nav {
       background-color: #333;
       padding: 10px 20px;
@@ -17,11 +18,11 @@
       align-items: center;
     }
 
-    .logo{
+    .logo {
       height: 70px;
-      margin-right:45px;
+      margin-right: 45px;
     }
-    
+
     nav a {
       color: white;
       margin-right: 20px;
@@ -29,23 +30,58 @@
       font-weight: bold;
     }
 
-nav a:hover{
-  text-decoration:underline;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ▼▼ 画像フェードインのアニメーション ▼▼ */
+    .fade-slide-in {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    }
+
+    .fade-slide-in.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .main-image {
+      width: 300px;
+      margin: 100px auto;
+      display: block;
+    }
   </style>
 </head>
 <body>
 
   <!-- ナビゲーション -->
-<nav>
-  <a href="index.html">
-  <img src="images/logo.png" alt="ロゴ" class="logo">
-  </a>
-  <a href="member.html">メンバー紹介</a>
-  <a href="contact.html">お問い合わせ</a>
-  <a href="articles.html">記事</a>
-</nav>
+  <nav>
+    <a href="index.html">
+      <img src="images/logo.png" alt="ロゴ" class="logo">
+    </a>
+    <a href="member.html">メンバー紹介</a>
+    <a href="contact.html">お問い合わせ</a>
+    <a href="articles.html">記事</a>
+  </nav>
 
+  <!-- ▼ フェードスライドイン画像（例）▼ -->
+  <img src="images/midashi.png" alt="見出し" class="fade-slide-in main-image">
+
+  <!-- ▼ スクリプトで表示制御 ▼ -->
+  <script>
+    const targets = document.querySelectorAll('.fade-slide-in');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    targets.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
