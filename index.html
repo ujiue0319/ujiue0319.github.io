@@ -12,27 +12,35 @@
     }
     nav {
       background-color: #333;
-      padding: 10px;
-      position: sticky;
-      top: 0;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
     }
+
+    .logo{
+      hight: 30px;
+      margin-right:20px;
+    }
+    
     nav a {
       color: white;
       margin-right: 20px;
       text-decoration: none;
+      front-weight: bold;
     }
-    section {
-      padding: 50px;
-    }
-    h2 {
-      border-bottom: 2px solid #ccc;
-    }
+
+nav a:hover{
+  text-decoration:underline;
+}
   </style>
 </head>
 <body>
 
   <!-- ナビゲーション -->
 <nav>
+  <a href="index.html">
+  <img src="images/ロゴ.png" alt="ロゴ" class="logo">
+  </a>
   <a href="member.html">メンバー紹介</a>
   <a href="contact.html">お問い合わせ</a>
   <a href="articles.html">記事</a>
